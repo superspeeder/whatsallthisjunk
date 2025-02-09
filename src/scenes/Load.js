@@ -1,11 +1,13 @@
 class LoadScene extends Phaser.Scene {
-    preload() {
+    constructor() {
+        super("load");
+    }
 
+    preload() {
+        this.load.image("menu_background", "assets/background_menu.png");
     }
 
     create() {
-
-
-        
+        this.scene.start("mainMenu");
     }
 }
