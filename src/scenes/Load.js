@@ -4,7 +4,8 @@ class LoadScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("menu_background", "assets/background_menu.png");
+        this.load.image(TEXTURE_NAMES.MENU_BACKGROUND, "assets/background_menu.png");
+        this.load.atlas(TEXTURE_NAMES.OBSTACLES, "assets/tileset.png", "assets/obstacle_atlas.json")
     }
 
     create() {
