@@ -1,70 +1,67 @@
 // Type definitions for my custom fsm implementation
 // Definitions and library by Andy Newton
 
-declare namespace FSM {
-
-    class State {
-
-        /**
-         * Override this to handle the onEnter state change.
-         *
-         * @param stateMachine The calling state machine
-         * @param extraArgs The arguments stored with the state when the state machine was set up.
-         */
-        onEnter(stateMachine: StateMachine, ...extraArgs?: any[]): void;
-
-        /**
-         * Override this to handle the onEnter state change.
-         *
-         * @param stateMachine The calling state machine
-         * @param extraArgs The arguments stored with the state when the state machine was set up.
-         */
-        onLeave(stateMachine: StateMachine, ...extraArgs?: any[]): void;
-
-        /**
-         * Override this to do something each step of the state machine/
-         *
-         * @param stateMachine The calling state machine
-         * @param extraArgs The arguments stored with the state when the state machine was set up.
-         */
-        onUpdate(stateMachine: StateMachine, ...extraArgs?: any[]): void;
-    }
+declare class FSMState {
 
     /**
-     * Mapping of state names to states and the extra args which will be passed to their callbacks.
+     * Override this to handle the onEnter state change.
+     *
+     * @param stateMachine The calling state machine
+     * @param extraArgs The arguments stored with the state when the state machine was set up.
      */
-    interface States {
-        [name: string]: { state: State, extraArgs: any[] }
-    }
+    onEnter(stateMachine: FSMStateMachine, ...extraArgs?: any[]): void;
 
     /**
-     * Main state machine class. Manages the states.
+     * Override this to handle the onEnter state change.
+     *
+     * @param stateMachine The calling state machine
+     * @param extraArgs The arguments stored with the state when the state machine was set up.
      */
-    class StateMachine {
-        constructor(states: States);
+    onLeave(stateMachine: FSMStateMachine, ...extraArgs?: any[]): void;
 
-        /**
-         * Set the current state.
-         *
-         * Calls onLeave for the current state and then onEnter for new state (in that order).
-         *
-         * @param targetState The new state you are switching this machine to.
-         */
-        setState(targetState: string);
+    /**
+     * Override this to do something each step of the state machine/
+     *
+     * @param stateMachine The calling state machine
+     * @param extraArgs The arguments stored with the state when the state machine was set up.
+     */
+    onUpdate(stateMachine: FSMStateMachine, ...extraArgs?: any[]): void;
+}
 
-        /**
-         * Step the state machine (calls onUpdate for the current state if the current state is not null).
-         */
-        step();
+/**
+ * Mapping of state names to states and the extra args which will be passed to their callbacks.
+ */
+interface FSMStates {
+    [name: string]: { state: FSMState, extraArgs: any[] }
+}
 
-        /**
-         * Access the current state. Do not write to this externally.
-         */
-        state: string | null;
+/**
+ * Main state machine class. Manages the states.
+ */
+class FSMStateMachine {
+    constructor(states: FSMStates);
 
-        /**
-         * Access the collection of all states
-         */
-        readonly states: States;
-    }
+    /**
+     * Set the current state.
+     *
+     * Calls onLeave for the current state and then onEnter for new state (in that order).
+     *
+     * @param targetState The new state you are switching this machine to.
+     */
+    setState(targetState: string);
+
+    /**
+     * Step the state machine (calls onUpdate for the current state if the current state is not null).
+     */
+    step();
+
+    /**
+     * Access the current state. Do not write to this externally.
+     */
+    state: string | null;
+
+    /**
+     * Access the collection of all states
+     */
+    readonly states: FSMStates;
 }

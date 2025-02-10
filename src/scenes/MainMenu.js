@@ -6,7 +6,7 @@ class MainMenuScene extends Phaser.Scene {
     create() {
         this.cameras.main.setBounds(0, 0, width, height);
 
-        let backgroundPicture = this.add.image(0, 0, "menu_background").setOrigin(0, 0);
+        let backgroundPicture = this.add.image(0, 0, TEXTURE_NAMES.MENU_BACKGROUND).setOrigin(0, 0);
 
         // background_picture.texture.setFilter(Phaser.Textures.NEAREST);
 

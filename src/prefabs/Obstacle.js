@@ -1,9 +1,9 @@
 /**
- * @typedef {Object} Prefabs.Obstacle
+ * @typedef {Object} Obstacle
  * @property {boolean} ingame Is this obstacle actively in the game or is it marked as offscreen.
  * @extends Phaser.Physics.Arcade.Sprite
  */
-Prefabs.Obstacle = class extends Phaser.Physics.Arcade.Sprite {
+class Obstacle extends Phaser.Physics.Arcade.Sprite {
 
     /**
      * @param {GameScene} scene
@@ -11,11 +11,15 @@ Prefabs.Obstacle = class extends Phaser.Physics.Arcade.Sprite {
      */
     constructor(scene, manager, index, texture, frame) {
         super(scene, 0, 0, texture, frame);
-        this.setVisible(false);
-        this.body.setEnable(false)
-        this.body.setImmovable(true);
+        this.myScene = scene;
+        
+        this.myScene.add.existing(this);
+        this.myScene.physics.add.existing(this);
+
+        this.disableBody(true, true);
         this.setOrigin(0.5)
         this.setDepth(LAYERS.FOREGROUND_OBJECTS);
+        this.setPushable(false);    
 
         this.ingame = false;
         this.manager = manager;
@@ -24,25 +28,18 @@ Prefabs.Obstacle = class extends Phaser.Physics.Arcade.Sprite {
 
     update() {
         if (this.ingame) {
-            this.body.setVelocityY(this.scene.worldScrollingSpeed * GAME_SETTINGS.SCROLL_SPEED * PARALLAX_FACTORS[LAYERS.FOREGROUND_OBJECTS]);
+            this.setVelocityY(this.myScene.worldScrollingSpeed * GAME_SETTINGS.SCROLL_SPEED * PARALLAX_FACTORS[LAYERS.FOREGROUND_OBJECTS]);
 
             if (this.getTopCenter().y > height) {
                 this.ingame = false;
-                this.body.stop();
-                this.setPosition(0);
-                this.body.setEnable(false);
-                this.setVisible(false);
-    
+                this.disableBody(true, true);
                 this.manager.reclaim(this.index);
             }    
         }
     }
 
     introduceAt(x, y) {
-        this.setPosition(x, y);
-        this.setVisible(true);
-        this.body.setEnable(true)
-        
+        this.enableBody(true, x, y, true, true);
         this.ingame = true;
     }
 }

@@ -7,21 +7,23 @@ class ObstacleManager {
     constructor(scene) {
         this.scene = scene;
 
-        /** @type {Prefabs.Obstacle[]} */
+        /** @type {Obstacle[]} */
         this.obstacles = [];
 
         /** @type {integer[]} */
         this.offscreenObstacles = [];
 
-        let collection = MyUtils.generateWeightedCollection(OBSTACLE_DISTRIBUTION, GAME_SETTINGS.NUM_OBSTACLES);
+        let collection = generateWeightedCollection(OBSTACLE_DISTRIBUTION, GAME_SETTINGS.NUM_OBSTACLES);
 
         for (let i = 0 ; i < GAME_SETTINGS.NUM_OBSTACLES ; i++) {
-            let obstacle = new Prefabs.Obstacle(this.scene, this, i, TEXTURE_NAMES.OBSTACLES, OBSTACLE_TYPE_NAMES[collection[i]]);
+            let obstacle = new Obstacle(this.scene, this, i, TEXTURE_NAMES.OBSTACLES, OBSTACLE_TYPE_NAMES[collection[i]]);
             this.obstacles.push(obstacle);
             this.offscreenObstacles.push(i);
         }
 
-        this.group = this.scene.add.group(this.obstacles);
+        this.group = this.scene.add.group(this.obstacles, {
+            runChildUpdate: true
+        });
     }
 
     introduceNextObstacle() {
@@ -30,7 +32,7 @@ class ObstacleManager {
 
             let i = Phaser.Math.Between(0, this.offscreenObstacles.length - 1);
             let obst = this.obstacles[this.offscreenObstacles[i]];
-            delete this.offscreenObstacles[i];
+            this.offscreenObstacles.splice(i, 1);
 
             let oWidth = obst.width;
 
