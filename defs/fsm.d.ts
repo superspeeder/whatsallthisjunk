@@ -31,14 +31,14 @@ declare class FSMState {
 /**
  * Mapping of state names to states and the extra args which will be passed to their callbacks.
  */
-interface FSMStates {
+declare interface FSMStates {
     [name: string]: { state: FSMState, extraArgs: any[] }
 }
 
 /**
  * Main state machine class. Manages the states.
  */
-class FSMStateMachine {
+declare class FSMStateMachine {
     constructor(states: FSMStates);
 
     /**

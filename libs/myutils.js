@@ -6,13 +6,14 @@ class ObjectPool {
         this.inUse = []
         this.pool = []
         for (let i = 0; i < this.count; i++) {
-            this.pool.push(objectParams.init(...extraParams));
+            this.pool.push(objectParams.init(this, i, ...extraParams));
             this.available.push(i)
             this.inUse.push(false)
         }
     }
 
     create(...params) {
+        console.log(this.available.length);
         let index = this.available.shift();
         if (index === undefined) {
             return undefined;
@@ -43,6 +44,7 @@ class ObjectPool {
                 }
             }
         }
+
 
         if (obj !== undefined) {
             this.objectParams.release(obj);

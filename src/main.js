@@ -5,6 +5,10 @@ const config = {
     width: 300,
     height: 400,
     scene: [LoadScene, MainMenuScene, GameScene],
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
+    },
     physics: {
         default: 'arcade',
         arcade: {
@@ -42,6 +46,11 @@ const LAYERS = {
  * @property {integer} NUM_OBSTACLES
  * @property {integer} NUM_OFFSCREEN_OBSTACLES
  * @property {number} SCROLL_SPEED
+ * @property {number} OBSTACLE_SPAWN_TIMING_MIN
+ * @property {number} OBSTACLE_SPAWN_TIMING_MAX
+ * @property {number} LASER_SHOT_SPEED
+ * @property {number} PLAYER_MOVE_SPEED
+ * @property {integer} MAX_HEALTH
  */
 
 /** @type {GameSettings} */
@@ -57,6 +66,10 @@ const GAME_SETTINGS = {
 
     OBSTACLE_SPAWN_TIMING_MIN: 250,
     OBSTACLE_SPAWN_TIMING_MAX: 750,
+
+    LASER_SHOT_SPEED: 100,
+    PLAYER_MOVE_SPEED: 100,
+    MAX_HEALTH: 5,
 };
 
 /** @enum {integer} */
@@ -98,4 +111,34 @@ const TEXTURE_NAMES = {
     GAME_BACKGROUND: "background",
     OBSTACLES: "obstacles",
     NEBULAE: "nebulae",
+    PLAYER: "player",
+    LASER_SHOT: "laser_shot",
+    HEALTH_BAR: "health_bar",
+};
+
+const ANIM_NAMES = {
+    PLAYER_IDLE: "player-idle",
+    PLAYER_FIRING: "player-firing",
+    PLAYER_FIRING_COOLDOWN: "player-firing-cooldown",
+};
+
+const ANIM_FRAMERATES = {
+    PLAYER_IDLE: 8,
+    PLAYER_FIRING: 12,
+    PLAYER_FIRING_COOLDOWN: 8,
+};
+
+const ANIM_FRAMES = {
+    PLAYER_IDLE: [0,1,2],
+    PLAYER_FIRING: [3,4,5,6],
+    PLAYER_FIRING_COOLDOWN: [7,8,9,10]
+};
+
+const ANIM_PLAYER_IDLE_REPEAT_DELAY = 750;
+
+const UI_LAYOUT = {
+    HEALTH_BAR: {
+        x: 8,
+        y: 8,
+    }
 };

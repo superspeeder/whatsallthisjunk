@@ -45,12 +45,18 @@ class FSMStateMachine {
 
         if (targetState !== null) {
             let nextState = this.states[targetState];
-            nextState.state.onEnter(this, nextState.extraArgs);
+            nextState.state.onEnter(this, ...nextState.extraArgs);
 
         }
 
     }
 
-    step
+    step() {
+        if (this.state !== null) {
+            if (this.states[this.state] !== undefined) {
+                this.states[this.state].state.onUpdate(this, ...this.states[this.state].extraArgs);
+            }
+        }
+    }
 }
 

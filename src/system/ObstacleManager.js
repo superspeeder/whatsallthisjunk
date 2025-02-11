@@ -2,7 +2,7 @@
 
 class ObstacleManager {
     /** 
-     * @param {Phaser.Scene} scene
+     * @param {GameScene} scene
      */
     constructor(scene) {
         this.scene = scene;
@@ -21,9 +21,9 @@ class ObstacleManager {
             this.offscreenObstacles.push(i);
         }
 
-        this.group = this.scene.add.group(this.obstacles, {
-            runChildUpdate: true
-        });
+        this.group = this.scene.add.group(this.obstacles);
+
+        this.scene.physics.add.collider(this.group, this.group);
     }
 
     introduceNextObstacle() {
@@ -37,11 +37,20 @@ class ObstacleManager {
             let oWidth = obst.width;
 
             let x = Phaser.Math.Between(oWidth / 2, width - oWidth / 2);
-            obst.introduceAt(x, 0);
+            obst.introduceAt(x, -50);
         }
     }
 
     reclaim(index) {
         this.offscreenObstacles.push(index);
+    }
+
+    update(time, delta) {
+        for (let i = 0 ; i < this.obstacles.length ; i++) {
+            let obst = this.obstacles[i];
+            if (obst.active) {
+                obst.update(time, delta);
+            }
+        }
     }
 }

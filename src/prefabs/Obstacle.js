@@ -19,7 +19,7 @@ class Obstacle extends Phaser.Physics.Arcade.Sprite {
         this.disableBody(true, true);
         this.setOrigin(0.5)
         this.setDepth(LAYERS.FOREGROUND_OBJECTS);
-        this.setPushable(false);    
+        this.setPushable(false);
 
         this.ingame = false;
         this.manager = manager;
@@ -31,9 +31,7 @@ class Obstacle extends Phaser.Physics.Arcade.Sprite {
             this.setVelocityY(this.myScene.worldScrollingSpeed * GAME_SETTINGS.SCROLL_SPEED * PARALLAX_FACTORS[LAYERS.FOREGROUND_OBJECTS]);
 
             if (this.getTopCenter().y > height) {
-                this.ingame = false;
-                this.disableBody(true, true);
-                this.manager.reclaim(this.index);
+                this.returnToPool();
             }    
         }
     }
@@ -41,5 +39,11 @@ class Obstacle extends Phaser.Physics.Arcade.Sprite {
     introduceAt(x, y) {
         this.enableBody(true, x, y, true, true);
         this.ingame = true;
+    }
+
+    returnToPool() {
+        this.ingame = false;
+        this.disableBody(true, true);
+        this.manager.reclaim(this.index);
     }
 }
