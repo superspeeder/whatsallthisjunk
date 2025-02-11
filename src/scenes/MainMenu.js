@@ -13,7 +13,7 @@ class MainMenuScene extends Phaser.Scene {
             fontSize: 24,
             fixedHeight: 64,
         };
-        this.titleText = this.add.text(width / 2, height / 8, "What's all this junk??", textStyle);
+        this.titleText = this.add.text(width / 2, height / 8, "What's all this Junk??", textStyle);
         this.titleText.setOrigin(0.5, 0.5);
         this.titleText.setShadow(2, 1.5, "gray", 0, false, true);
 

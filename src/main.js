@@ -1,3 +1,22 @@
+/*
+Name: Andy Newton
+Game Title: What's all this Junk??
+Approx. Hours Spent: 28 hrs.
+
+Creative Tilt:
+    What does my game do that is technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do something new?
+        I made my own finite state machine and object pooling implementations, as well as a way to easily generate a distribution of things without being totally random (which I use for the amounts of the different kinds of obstacles).
+        I also think that the way I manage obstacles is interesting, since I hold a pool of offscreen obstacles and have a minimum number of allowed offscreen obstacles, which is important because the pool of offscreen obstacles is how I make it more random in how the next obstacle gets selected since I don't just immediately move one from the bottom back to the top, instead I take a random offscreen one every time the timer runs out.
+        I also spent a good amount of time learning how to write the .d.ts files so I could write those for the FSM implementation I made, which was fun. I also learned how to use JSDoc comments along the way, which helped my productivity immensely (autocomplete is always so nice).
+        Another thing I enjoyed making was my abstraction of menu buttons, which made it so much easier to get cohesive looking buttons that are easy to just drop into a scene. For example, it only took me about 1 minute to hook up the buttons on the game over screen for return to main menu and play again.
+    
+    Does my game have a great visual style? Does it use music or art that you're particularly proud of? Are you trying something new or clever with the endless runner form?
+        While I'm most certainly *not* doing anything especially clever with the endless runner form, I like how everything came together from my original idea. My original idea was to have the player dodging junk in space that doesn't exactly make sense to be there.
+        I am especially proud of the bubble that you get a power up from, as that was fun and good practice to draw and animate (I'm definitely still working on my pixel art skills). I also think most of the other assets and the overall visual style doesn't look too inconsistent, and I think that everything works well together.
+        I definitely think that the parallax I do for the background layers is super helpful in tying together the visual style (the nebulae were also really cool to get looking right since they really help to sell the scene in my opinion).
+        I also think the audio elements ended up working out pretty well.
+*/
+
 'use strict';
 
 const config = {

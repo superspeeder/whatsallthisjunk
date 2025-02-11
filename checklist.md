@@ -12,7 +12,7 @@
 - [x]    Be theoretically endless (1)
 - [x]    Be playable for at least 15 seconds for a new player of low to moderate skill (1)
 - [x]    Run without significant crashes or errors (1)
-- [ ]    Include in-game credits for all roles, assets, music, etc. (1)
+- [x]    Include in-game credits for all roles, assets, music, etc. (1)
 
 
 ...do something technically interesting? Are you particularly proud of a programming technique you implemented? Did you look beyond the class examples and learn how to do 
