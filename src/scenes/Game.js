@@ -249,6 +249,10 @@ class GameScene extends Phaser.Scene {
         this.sound.play('bgm', {loop: true});
 
         this.powerupMarker = this.add.sprite(32, 8, "powerupMarker").setOrigin(0).setVisible(false).setDepth(LAYERS.UI_START);
+
+        this.time.delayedCall(10, () => {
+            this.starttime = this.time.now; // weird workaround for a really weird bug
+        })
     }
 
     gameUpdates(time, delta) {
