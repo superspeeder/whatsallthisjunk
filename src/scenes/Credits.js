@@ -18,5 +18,11 @@ class CreditsScene extends Phaser.Scene {
 
         this.add.text(width / 2, height / 2, "This game is made by Andy Newton\nusing the Phaser 3 library.", textStyle).setOrigin(0.5);
         this.add.text(width / 2, height / 2 + 40, "This games art (visual and audio),\n is also made by Andy Newton.", textStyle).setOrigin(0.5);
+
+        this.returnButton = new MenuButton(this, "credits-return", width - UI_LAYOUT.BUTTON.WIDTH / 2 - 8, height * 0.875, UI_LAYOUT.BUTTON.WIDTH, UI_LAYOUT.BUTTON.HEIGHT, "Back")
+        this.returnButton.on('userevent.menu-button-down', () => {
+            this.scene.start('mainMenu');
+        })
+        this.sound.stopByKey('bgm');
     }
 }
