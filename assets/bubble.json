@@ -1,0 +1,196 @@
+{ "frames": {
+   "health-bar-0": {
+    "frame": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-1": {
+    "frame": { "x": 32, "y": 0, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-2": {
+    "frame": { "x": 64, "y": 0, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-3": {
+    "frame": { "x": 96, "y": 0, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-4": {
+    "frame": { "x": 128, "y": 0, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-5": {
+    "frame": { "x": 32, "y": 0, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-6": {
+    "frame": { "x": 0, "y": 72, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-7": {
+    "frame": { "x": 32, "y": 72, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-8": {
+    "frame": { "x": 64, "y": 72, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-9": {
+    "frame": { "x": 96, "y": 72, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-10": {
+    "frame": { "x": 128, "y": 72, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-11": {
+    "frame": { "x": 0, "y": 144, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-12": {
+    "frame": { "x": 32, "y": 144, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-13": {
+    "frame": { "x": 64, "y": 144, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-14": {
+    "frame": { "x": 96, "y": 144, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-15": {
+    "frame": { "x": 128, "y": 144, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-16": {
+    "frame": { "x": 0, "y": 216, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-17": {
+    "frame": { "x": 32, "y": 216, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-18": {
+    "frame": { "x": 64, "y": 216, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-19": {
+    "frame": { "x": 96, "y": 216, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   },
+   "health-bar-20": {
+    "frame": { "x": 128, "y": 216, "w": 32, "h": 72 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 72 },
+    "sourceSize": { "w": 32, "h": 72 },
+    "duration": 62
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.7-x64",
+  "image": "bubble.png",
+  "format": "RGBA8888",
+  "size": { "w": 160, "h": 288 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "Idle", "from": 0, "to": 11, "direction": "forward", "color": "#000000ff" },
+   { "name": "Pop", "from": 12, "to": 13, "direction": "forward", "color": "#000000ff" },
+   { "name": "Death", "from": 14, "to": 20, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Engine", "opacity": 255, "blendMode": "normal" },
+   { "name": "Platform", "opacity": 255, "blendMode": "normal" },
+   { "name": "Platform Part2", "opacity": 255, "blendMode": "normal" },
+   { "name": "Shadow", "opacity": 255, "blendMode": "normal" },
+   { "name": "Bubble", "opacity": 255, "blendMode": "normal" },
+   { "name": "Highlight", "opacity": 255, "blendMode": "normal" },
+   { "name": "Gem", "opacity": 255, "blendMode": "normal" },
+   { "name": "Platform Glow", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

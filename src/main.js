@@ -4,15 +4,14 @@ const config = {
     type: Phaser.AUTO,
     width: 300,
     height: 400,
-    scene: [LoadScene, MainMenuScene, GameScene],
+    scene: [LoadScene, MainMenuScene, GameScene, TutorialScene, GameOverScene, CreditsScene],
     scale: {
-        mode: Phaser.Scale.FIT,
+        mode: Phaser.Scale.NONE,
         autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
     },
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
             gravity: {
                 x: 0,
                 y: 0
@@ -51,6 +50,7 @@ const LAYERS = {
  * @property {number} LASER_SHOT_SPEED
  * @property {number} PLAYER_MOVE_SPEED
  * @property {integer} MAX_HEALTH
+ * @property {integer} RESPAWN_TIME
  */
 
 /** @type {GameSettings} */
@@ -70,6 +70,11 @@ const GAME_SETTINGS = {
     LASER_SHOT_SPEED: 100,
     PLAYER_MOVE_SPEED: 100,
     MAX_HEALTH: 5,
+    RESPAWN_TIME: 750,
+    POWERUP_SPAWN_TIME_MIN: 0,
+    POWERUP_SPAWN_TIME_MAX: 100,
+    GAMETIME_SPEEDFACTOR: 0.05,
+    POWERUP_DURATION: 500,
 };
 
 /** @enum {integer} */
@@ -108,30 +113,38 @@ const OBSTACLE_TYPE_NAMES = {
 
 const TEXTURE_NAMES = {
     MENU_BACKGROUND: "menu_background",
+    MENU_BACKGROUND_2: "menu_background_2",
     GAME_BACKGROUND: "background",
     OBSTACLES: "obstacles",
     NEBULAE: "nebulae",
     PLAYER: "player",
     LASER_SHOT: "laser_shot",
     HEALTH_BAR: "health_bar",
+    POWERUP: "powerup",
 };
 
 const ANIM_NAMES = {
     PLAYER_IDLE: "player-idle",
     PLAYER_FIRING: "player-firing",
     PLAYER_FIRING_COOLDOWN: "player-firing-cooldown",
+    POWERUP_IDLE: "powerup-idle",
+    POWERUP_POP: "powerup-pop",
 };
 
 const ANIM_FRAMERATES = {
     PLAYER_IDLE: 8,
     PLAYER_FIRING: 12,
     PLAYER_FIRING_COOLDOWN: 8,
+    POWERUP_IDLE: 16,
+    POWERUP_POP: 8,
 };
 
 const ANIM_FRAMES = {
     PLAYER_IDLE: [0,1,2],
     PLAYER_FIRING: [3,4,5,6],
-    PLAYER_FIRING_COOLDOWN: [7,8,9,10]
+    PLAYER_FIRING_COOLDOWN: [7,8,9,10],
+    POWERUP_IDLE: [0,1,2,3,4,5,6,7,8,9,10],
+    POWERUP_POP: [11,12,13,14,15,16,17,18,19,20],
 };
 
 const ANIM_PLAYER_IDLE_REPEAT_DELAY = 750;
@@ -140,5 +153,38 @@ const UI_LAYOUT = {
     HEALTH_BAR: {
         x: 8,
         y: 8,
+    },
+    BUTTON: {
+        STROKE_WIDTH: 2,
+        FONT_SIZE: 14,
+        WIDTH: 80,
+        HEIGHT: 32,
+    },
+    TEXT: {
+        FONT_FAMILY: 'verdana',
     }
 };
+
+function getHighScore() {
+    let highScore = localStorage.getItem("whatsallthisjunk.highScore");
+    if (highScore === null || highScore === undefined) {
+        return 0;
+    } else {
+        return parseInt(highScore);
+    }
+}
+
+/**
+ * @param {integer} score
+ */
+function saveHighScore(score) {
+    if (Math.floor(score) > getHighScore()) {
+        localStorage.setItem("whatsallthisjunk.highScore", Math.floor(score).toString())
+        return true;
+    }
+    return false;
+}
+
+function resetPersistence() {
+    localStorage.removeItem("whatsallthisjunk.highScore");
+}

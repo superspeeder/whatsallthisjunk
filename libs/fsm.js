@@ -35,9 +35,9 @@ class FSMStateMachine {
         if (this.state !== null) {
             let currentState = this.states[this.state];
             if (currentState !== undefined) {
-                currentState.state.onLeave(null, this, ...currentState.extraArgs);
+                currentState.state.onLeave(this, ...currentState.extraArgs);
             } else {
-                console.warn(`Current state "${targetState}" is undefined, unable to call onLeave.`);
+                console.warn(`Current state "${this.state}" is undefined, unable to call onLeave.`);
             }
         }
 

@@ -25,6 +25,7 @@ class LaserShot extends Phaser.Physics.Arcade.Sprite {
     introduceAt(x, y) {
         this.enableBody(true, x, y, true, true);
         this.setVelocityY(-GAME_SETTINGS.LASER_SHOT_SPEED);
+        this.scene.sound.play("laserShoot")
     }
 
     makeDisabled() {
