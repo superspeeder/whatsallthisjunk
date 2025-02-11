@@ -222,7 +222,7 @@ class GameScene extends Phaser.Scene {
         this.scoreMarker = this.add.text(width - 8, 8, `${Math.floor(this.player.score)}`, textStyle);
         this.scoreMarker.setDepth(LAYERS.UI_START).setOrigin(1, 0);
 
-        this.powerup = this.physics.add.sprite(0, 0, TEXTURE_NAMES.POWERUP);
+        this.powerup = this.physics.add.sprite(0, 0, TEXTURE_NAMES.POWERUP).setDepth(LAYERS.COLLECTIBLES);
         this.powerup.disableBody(true, true).setOrigin(0.5);
         this.powerupOnScreen = false;
         this.powerup.body.setCircle(15);
